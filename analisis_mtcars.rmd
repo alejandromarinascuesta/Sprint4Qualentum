@@ -1,0 +1,46 @@
+---
+title: "Análisis Exploratorio del Dataset mtcars"
+author: "Nombre del Autor"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    theme: cosmo
+    number_sections: true
+---
+
+# Introducción
+
+El propósito de este documento es realizar un **análisis exploratorio de datos** utilizando el dataset *mtcars*, que contiene información sobre características técnicas de automóviles. Este análisis incluye:
+
+- Carga y visualización de datos.
+- Creación de tablas estáticas e interactivas.
+- Generación de un gráfico para visualizar patrones o relaciones.
+- Personalización del documento.
+
+Las herramientas principales utilizadas son las librerías **`dplyr`**, **`kableExtra`**, **`DT`** y **`ggplot2`**.
+
+---
+
+# Carga de Librerías y Datos
+
+En esta sección se cargarán las librerías necesarias y el dataset **mtcars**.
+
+```{r setup, include=FALSE}
+# Configuración inicial
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+# Instalación de paquetes si no están instalados
+if (!require(dplyr)) install.packages("dplyr")
+if (!require(knitr)) install.packages("knitr")
+if (!require(kableExtra)) install.packages("kableExtra")
+if (!require(DT)) install.packages("DT")
+if (!require(ggplot2)) install.packages("ggplot2")
+
+# Cargar librerías
+library(dplyr)
+library(knitr)
+library(kableExtra)
+library(DT)
+library(ggplot2)
