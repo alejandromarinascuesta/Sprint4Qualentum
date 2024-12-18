@@ -44,3 +44,29 @@ library(knitr)
 library(kableExtra)
 library(DT)
 library(ggplot2)
+
+
+# Cargar el dataset mtcars
+data("mtcars")
+df <- as.data.frame(mtcars)
+
+# Mostrar las primeras filas del dataset
+head(df)
+
+# Mostrar primeras filas del dataset con kable
+kable(head(df), caption = "Tabla 1: Primeras filas del dataset mtcars") %>%
+  kable_styling(full_width = FALSE, position = "center", bootstrap_options = c("striped", "hover", "condensed"))
+
+# Tabla interactiva con DT
+datatable(df, 
+          options = list(pageLength = 10, autoWidth = TRUE), 
+          caption = "Tabla 2: Tabla interactiva del dataset mtcars")
+
+# Gráfico de dispersión
+ggplot(df, aes(x = hp, y = mpg)) +
+  geom_point(color = "blue", size = 2) +
+  geom_smooth(method = "lm", col = "red") +
+  labs(title = "Relación entre Consumo de Combustible y Potencia del Motor",
+       x = "Potencia (hp)",
+       y = "Consumo (mpg)") +
+  theme_minimal()
